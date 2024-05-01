@@ -40,7 +40,7 @@
             линейныйToolStripMenuItem = new ToolStripMenuItem();
             бинарныйToolStripMenuItem = new ToolStripMenuItem();
             заданиеToolStripMenuItem1 = new ToolStripMenuItem();
-            задание1ToolStripMenuItem = new ToolStripMenuItem();
+            ExOneToolStripMenuItem = new ToolStripMenuItem();
             задание2ToolStripMenuItem = new ToolStripMenuItem();
             задание3ToolStripMenuItem = new ToolStripMenuItem();
             оПрограммеToolStripMenuItem = new ToolStripMenuItem();
@@ -99,25 +99,26 @@
             коллекцииToolStripMenuItem.Name = "коллекцииToolStripMenuItem";
             коллекцииToolStripMenuItem.Size = new Size(80, 20);
             коллекцииToolStripMenuItem.Text = "Коллекции";
+            коллекцииToolStripMenuItem.Click += коллекцииToolStripMenuItem_Click;
             // 
             // CreateToolStripMenuItem
             // 
             CreateToolStripMenuItem.Name = "CreateToolStripMenuItem";
-            CreateToolStripMenuItem.Size = new Size(154, 22);
+            CreateToolStripMenuItem.Size = new Size(180, 22);
             CreateToolStripMenuItem.Text = "Создать";
             CreateToolStripMenuItem.Click += CreateToolStripMenuItem_Click;
             // 
             // ViewToolStripMenuItem
             // 
             ViewToolStripMenuItem.Name = "ViewToolStripMenuItem";
-            ViewToolStripMenuItem.Size = new Size(154, 22);
+            ViewToolStripMenuItem.Size = new Size(180, 22);
             ViewToolStripMenuItem.Text = "Просмотреть";
             ViewToolStripMenuItem.Click += ViewToolStripMenuItem_Click;
             // 
             // EditToolStripMenuItem
             // 
             EditToolStripMenuItem.Name = "EditToolStripMenuItem";
-            EditToolStripMenuItem.Size = new Size(154, 22);
+            EditToolStripMenuItem.Size = new Size(180, 22);
             EditToolStripMenuItem.Text = "Редактировать";
             EditToolStripMenuItem.Click += EditToolStripMenuItem_Click;
             // 
@@ -131,40 +132,43 @@
             // сортировакаToolStripMenuItem
             // 
             сортировакаToolStripMenuItem.Name = "сортировакаToolStripMenuItem";
-            сортировакаToolStripMenuItem.Size = new Size(146, 22);
-            сортировакаToolStripMenuItem.Text = "Сортировака";
+            сортировакаToolStripMenuItem.Size = new Size(180, 22);
+            сортировакаToolStripMenuItem.Text = "Сортировка";
+            сортировакаToolStripMenuItem.Click += сортировакаToolStripMenuItem_Click;
             // 
             // поискToolStripMenuItem
             // 
             поискToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { линейныйToolStripMenuItem, бинарныйToolStripMenuItem });
             поискToolStripMenuItem.Name = "поискToolStripMenuItem";
-            поискToolStripMenuItem.Size = new Size(146, 22);
+            поискToolStripMenuItem.Size = new Size(180, 22);
             поискToolStripMenuItem.Text = "Поиск";
             // 
             // линейныйToolStripMenuItem
             // 
             линейныйToolStripMenuItem.Name = "линейныйToolStripMenuItem";
-            линейныйToolStripMenuItem.Size = new Size(132, 22);
+            линейныйToolStripMenuItem.Size = new Size(180, 22);
             линейныйToolStripMenuItem.Text = "Линейный";
+            линейныйToolStripMenuItem.Click += линейныйToolStripMenuItem_Click;
             // 
             // бинарныйToolStripMenuItem
             // 
             бинарныйToolStripMenuItem.Name = "бинарныйToolStripMenuItem";
-            бинарныйToolStripMenuItem.Size = new Size(132, 22);
+            бинарныйToolStripMenuItem.Size = new Size(180, 22);
             бинарныйToolStripMenuItem.Text = "Бинарный";
             // 
             // заданиеToolStripMenuItem1
             // 
-            заданиеToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { задание1ToolStripMenuItem, задание2ToolStripMenuItem, задание3ToolStripMenuItem });
+            заданиеToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { ExOneToolStripMenuItem, задание2ToolStripMenuItem, задание3ToolStripMenuItem });
             заданиеToolStripMenuItem1.Name = "заданиеToolStripMenuItem1";
-            заданиеToolStripMenuItem1.Size = new Size(146, 22);
+            заданиеToolStripMenuItem1.Size = new Size(180, 22);
             заданиеToolStripMenuItem1.Text = "Задание";
             // 
-            // задание1ToolStripMenuItem
+            // ExOneToolStripMenuItem
             // 
-            задание1ToolStripMenuItem.Name = "задание1ToolStripMenuItem";
-            задание1ToolStripMenuItem.Size = new Size(128, 22);
-            задание1ToolStripMenuItem.Text = "Задание 1";
+            ExOneToolStripMenuItem.Name = "ExOneToolStripMenuItem";
+            ExOneToolStripMenuItem.Size = new Size(128, 22);
+            ExOneToolStripMenuItem.Text = "Задание 1";
+            ExOneToolStripMenuItem.Click += ExOneToolStripMenuItem_Click;
             // 
             // задание2ToolStripMenuItem
             // 
@@ -491,7 +495,7 @@
         private ToolStripMenuItem линейныйToolStripMenuItem;
         private ToolStripMenuItem бинарныйToolStripMenuItem;
         private ToolStripMenuItem заданиеToolStripMenuItem1;
-        private ToolStripMenuItem задание1ToolStripMenuItem;
+        private ToolStripMenuItem ExOneToolStripMenuItem;
         private ToolStripMenuItem задание2ToolStripMenuItem;
         private ToolStripMenuItem задание3ToolStripMenuItem;
         private ToolStripMenuItem оПрограммеToolStripMenuItem;

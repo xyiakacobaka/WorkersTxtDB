@@ -9,8 +9,12 @@ namespace Lab7
         {
             InitializeComponent();
         }
-        ArrayList arrayList = new ArrayList();
+
+        List<Payment> arrayList = new List<Payment>();
+
         Payment payment;
+
+        Finder finder = new Finder();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -24,23 +28,42 @@ namespace Lab7
             while (reader.Peek() > 1)
             {
                 string[] strings = reader.ReadLine().Split(";");
-                Payment payment = new Payment(strings[0], Double.Parse(strings[1]), Int32.Parse(strings[2]),
-                    Double.Parse(strings[3]), Int32.Parse(strings[4]), Double.Parse(strings[5]));
-                arrayList.Add(payment);
+                if (Check(strings[0]) && strings.Length == 6)
+                {
+                    Payment payment = new Payment(strings[0], Double.Parse(strings[1]), Int32.Parse(strings[2]),
+                        Double.Parse(strings[3]), Int32.Parse(strings[4]), Double.Parse(strings[5]));
+                    arrayList.Add(payment);
+                }
             }
             dataGridView1.DataSource = arrayList;
             reader.Close();
         }
 
+        private bool Check(string str)
+        {
+            foreach (Payment payment in arrayList)
+            {
+                if (str == payment.Фамилия)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         private void CreateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StreamWriter writer = new StreamWriter("123.txt", false);
-            foreach (var item in arrayList)
+            if (arrayList.Count != 0)
             {
-                writer.WriteLine(item);
+                StreamWriter writer = new StreamWriter("123.txt", false);
+                foreach (var item in arrayList)
+                {
+                    writer.WriteLine(item);
+                }
+                dataGridView1.DataSource = arrayList;
+                writer.Close();
             }
-            dataGridView1.DataSource = arrayList;
-            writer.Close();
+            else throw new ArgumentException("Невозможно создать пустой файл. Проверьте базу данных");
         }
 
         private void Create_Click(object sender, EventArgs e)
@@ -49,16 +72,15 @@ namespace Lab7
                     Double.Parse(B.Text), Int32.Parse(GA.Text), Double.Parse(WA.Text));
             foreach (Payment payment in arrayList)
             {
-                if(payment.Фамилия == LN.Text)
+                if (payment.Фамилия == LN.Text)
                 {
                     throw new ArgumentException("Такая фамилия уже существует");
                 }
-            }            
+            }
             arrayList.Add(payment);
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = arrayList;            
+            dataGridView1.DataSource = arrayList;
         }
-
 
         private void EditToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -88,6 +110,43 @@ namespace Lab7
                     throw new ArgumentException("Проверьте введенную фамилию");
             }
             else throw new ArgumentException("База данных пуста");
+        }
+
+        public interface IComparable
+        {
+            int CompareTo(object o);
+        }
+
+        private void ExOneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dbcheck();
+            arrayList.Sort();
+        }
+
+        private void сортировакаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dbcheck();
+            arrayList.Reverse();
+            dataGridView1.Refresh();
+        }
+
+        private void dbcheck()
+        {
+            if (dataGridView1.DataSource == null || arrayList.Count == 0)
+            {
+                throw new ArgumentException("Сначало введите данные, в случае если они есть, то нажмите кнопку 'Просмотреть'");
+            }
+        }
+
+        private void линейныйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dbcheck();
+            finder.ShowDialog();
+        }
+
+        private void коллекцииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

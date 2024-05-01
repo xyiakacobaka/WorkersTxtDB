@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Payments
 {
-    internal class Payment
+    internal class Payment : IComparable<Payment>
     {
         public string Фамилия { get; set; } //Фамилия
         public double Оклад { get; set; } //Оклад
@@ -110,11 +110,20 @@ namespace Payments
                 return new Payment(p1.Фамилия, p1.Оклад + p2.Оклад, p2.Year, p1.ProcentBonus + p2.ProcentBonus, p2.GivenAmount, p2.ProcentWithheldAmount);
             }
         }
-        public override string ToString()//Зачем использовать метод, если уже есть заранее созданная функция:\
+        public override string ToString()
         {
-            return this.Фамилия + ";" + this.Year + ";" + this.Оклад +
+            return this.Фамилия + ";"  + this.Оклад + ";" + this.Year  +
                 ";" + this.ProcentBonus + ";" + this.GivenAmount +
                 ";" + this.ProcentWithheldAmount;
+        }
+        public int CompareTo(Payment? obj)
+        {
+            if (this.Year < obj.Year)
+                return 1;
+            if (this.Year > obj.Year)
+                return -1;
+            else
+                return 0;
         }
     }
 }
