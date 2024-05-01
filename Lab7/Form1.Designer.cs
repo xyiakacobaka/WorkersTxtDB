@@ -131,7 +131,7 @@
             // сортировакаToolStripMenuItem
             // 
             сортировакаToolStripMenuItem.Name = "сортировакаToolStripMenuItem";
-            сортировакаToolStripMenuItem.Size = new Size(140, 22);
+            сортировакаToolStripMenuItem.Size = new Size(180, 22);
             сортировакаToolStripMenuItem.Text = "Сортировка";
             сортировакаToolStripMenuItem.Click += сортировакаToolStripMenuItem_Click;
             // 
@@ -139,27 +139,28 @@
             // 
             поискToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { линейныйToolStripMenuItem, бинарныйToolStripMenuItem });
             поискToolStripMenuItem.Name = "поискToolStripMenuItem";
-            поискToolStripMenuItem.Size = new Size(140, 22);
+            поискToolStripMenuItem.Size = new Size(180, 22);
             поискToolStripMenuItem.Text = "Поиск";
             // 
             // линейныйToolStripMenuItem
             // 
             линейныйToolStripMenuItem.Name = "линейныйToolStripMenuItem";
-            линейныйToolStripMenuItem.Size = new Size(132, 22);
+            линейныйToolStripMenuItem.Size = new Size(180, 22);
             линейныйToolStripMenuItem.Text = "Линейный";
             линейныйToolStripMenuItem.Click += линейныйToolStripMenuItem_Click;
             // 
             // бинарныйToolStripMenuItem
             // 
             бинарныйToolStripMenuItem.Name = "бинарныйToolStripMenuItem";
-            бинарныйToolStripMenuItem.Size = new Size(132, 22);
+            бинарныйToolStripMenuItem.Size = new Size(180, 22);
             бинарныйToolStripMenuItem.Text = "Бинарный";
+            бинарныйToolStripMenuItem.Click += бинарныйToolStripMenuItem_Click;
             // 
             // заданиеToolStripMenuItem1
             // 
             заданиеToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { ExOneToolStripMenuItem, задание2ToolStripMenuItem, задание3ToolStripMenuItem });
             заданиеToolStripMenuItem1.Name = "заданиеToolStripMenuItem1";
-            заданиеToolStripMenuItem1.Size = new Size(140, 22);
+            заданиеToolStripMenuItem1.Size = new Size(180, 22);
             заданиеToolStripMenuItem1.Text = "Задание";
             // 
             // ExOneToolStripMenuItem

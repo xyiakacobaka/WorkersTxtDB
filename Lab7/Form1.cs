@@ -11,14 +11,16 @@ namespace Lab7
 
         private List<Payment> arrayList = new List<Payment>();
 
+        private List<string> array = new List<string>();
+
         private Payment payment;
 
         private string linesearch;
 
-        public string LineSearch 
-        { 
-            get { return linesearch; } 
-            set { linesearch = value; } 
+        public string LineSearch
+        {
+            get { return linesearch; }
+            set { linesearch = value; }
         }
 
         private Finder finder = new Finder();
@@ -40,6 +42,7 @@ namespace Lab7
                     Payment payment = new Payment(strings[0], Double.Parse(strings[1]), Int32.Parse(strings[2]),
                         Double.Parse(strings[3]), Int32.Parse(strings[4]), Double.Parse(strings[5]));
                     arrayList.Add(payment);
+                    array.Add(strings[0]);
                 }
             }
             dataGridView1.DataSource = arrayList;
@@ -85,6 +88,7 @@ namespace Lab7
                 }
             }
             arrayList.Add(payment);
+            array.Add(LN.Text);
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = arrayList;
         }
@@ -123,12 +127,14 @@ namespace Lab7
         {
             dbcheck();
             arrayList.Sort();
+            array.Sort();
         }
 
         private void сортировакаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dbcheck();
             arrayList.Reverse();
+            array.Reverse();
             dataGridView1.Refresh();
         }
 
@@ -146,6 +152,20 @@ namespace Lab7
             finder.ShowDialog();
             List<Payment> arrayListFind = new List<Payment>();
             int i = arrayList.FindIndex(r => r.Фамилия.Equals(DataBank.Family));
+            if (i == -1)
+                throw new ApplicationException("Такой сотрудник не найден");
+            arrayListFind.Add(arrayList[i]);
+            dataGridView1.DataSource = arrayListFind;
+        }
+
+        private void бинарныйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dbcheck();
+            finder.ShowDialog();
+            List<Payment> arrayListFind = new List<Payment>();
+            int i = array.BinarySearch(DataBank.Family);
+            if (i < 0)
+                throw new ApplicationException("Такой сотрудник не найден");
             arrayListFind.Add(arrayList[i]);
             dataGridView1.DataSource = arrayListFind;
         }
