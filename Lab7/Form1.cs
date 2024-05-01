@@ -15,15 +15,10 @@ namespace Lab7
 
         private string linesearch;
 
-        public string LineSearch { 
+        public string LineSearch 
+        { 
             get { return linesearch; } 
-            set {
-                if (LineSearch == null) 
-                {
-                    throw new ArgumentNullException("Проверьте поле");
-                }
-                linesearch = value;
-            } 
+            set { linesearch = value; } 
         }
 
         private Finder finder = new Finder();
@@ -124,11 +119,6 @@ namespace Lab7
             else throw new ArgumentException("База данных пуста");
         }
 
-        public interface IComparable
-        {
-            int CompareTo(object o);
-        }
-
         private void ExOneToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dbcheck();
@@ -153,8 +143,11 @@ namespace Lab7
         private void линейныйToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dbcheck();
-            finder.Show();
-            this.Hide();
+            finder.ShowDialog();
+            List<Payment> arrayListFind = new List<Payment>();
+            int i = arrayList.FindIndex(r => r.Фамилия.Equals(DataBank.Family));
+            arrayListFind.Add(arrayList[i]);
+            dataGridView1.DataSource = arrayListFind;
         }
     }
 }

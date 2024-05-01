@@ -71,6 +71,7 @@
             FindFamily.Name = "FindFamily";
             FindFamily.Size = new Size(200, 23);
             FindFamily.TabIndex = 3;
+            FindFamily.TextChanged += FindFamily_TextChanged;
             // 
             // Find
             // 
@@ -94,7 +95,10 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Finder";
-            Text = "Finder";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Поиск";
+            TopMost = true;
             ResumeLayout(false);
             PerformLayout();
         }
