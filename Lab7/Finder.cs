@@ -16,5 +16,12 @@ namespace Lab7
         {
             InitializeComponent();
         }
+
+        private void Find_Click(object sender, EventArgs e)
+        {
+            Form form1 = Application.OpenForms[0];
+            form1.Show();
+            this.Close();
+        }
     }
 }

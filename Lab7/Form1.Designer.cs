@@ -99,7 +99,6 @@
             коллекцииToolStripMenuItem.Name = "коллекцииToolStripMenuItem";
             коллекцииToolStripMenuItem.Size = new Size(80, 20);
             коллекцииToolStripMenuItem.Text = "Коллекции";
-            коллекцииToolStripMenuItem.Click += коллекцииToolStripMenuItem_Click;
             // 
             // CreateToolStripMenuItem
             // 

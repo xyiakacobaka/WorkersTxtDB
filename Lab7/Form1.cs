@@ -1,5 +1,4 @@
 using Payments;
-using System.Collections;
 
 namespace Lab7
 {
@@ -10,11 +9,24 @@ namespace Lab7
             InitializeComponent();
         }
 
-        List<Payment> arrayList = new List<Payment>();
+        private List<Payment> arrayList = new List<Payment>();
 
-        Payment payment;
+        private Payment payment;
 
-        Finder finder = new Finder();
+        private string linesearch;
+
+        public string LineSearch { 
+            get { return linesearch; } 
+            set {
+                if (LineSearch == null) 
+                {
+                    throw new ArgumentNullException("Ïğîâåğüòå ïîëå");
+                }
+                linesearch = value;
+            } 
+        }
+
+        private Finder finder = new Finder();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -141,12 +153,8 @@ namespace Lab7
         private void ëèíåéíûéToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dbcheck();
-            finder.ShowDialog();
-        }
-
-        private void êîëëåêöèèToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            finder.Show();
+            this.Hide();
         }
     }
 }
