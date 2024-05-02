@@ -166,20 +166,21 @@
             // ExOneToolStripMenuItem
             // 
             ExOneToolStripMenuItem.Name = "ExOneToolStripMenuItem";
-            ExOneToolStripMenuItem.Size = new Size(128, 22);
+            ExOneToolStripMenuItem.Size = new Size(180, 22);
             ExOneToolStripMenuItem.Text = "Задание 1";
             ExOneToolStripMenuItem.Click += ExOneToolStripMenuItem_Click;
             // 
             // задание2ToolStripMenuItem
             // 
             задание2ToolStripMenuItem.Name = "задание2ToolStripMenuItem";
-            задание2ToolStripMenuItem.Size = new Size(128, 22);
+            задание2ToolStripMenuItem.Size = new Size(180, 22);
             задание2ToolStripMenuItem.Text = "Задание 2";
+            задание2ToolStripMenuItem.Click += задание2ToolStripMenuItem_Click;
             // 
             // задание3ToolStripMenuItem
             // 
             задание3ToolStripMenuItem.Name = "задание3ToolStripMenuItem";
-            задание3ToolStripMenuItem.Size = new Size(128, 22);
+            задание3ToolStripMenuItem.Size = new Size(180, 22);
             задание3ToolStripMenuItem.Text = "Задание 3";
             // 
             // оПрограммеToolStripMenuItem

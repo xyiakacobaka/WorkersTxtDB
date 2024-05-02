@@ -1,4 +1,5 @@
 using Payments;
+using System;
 
 namespace Lab7
 {
@@ -151,11 +152,12 @@ namespace Lab7
             dbcheck();
             finder.ShowDialog();
             List<Payment> arrayListFind = new List<Payment>();
-            int i = arrayList.FindIndex(r => r.Фамилия.Equals(DataBank.Family));
+            int i = array.IndexOf(DataBank.Family);
             if (i == -1)
                 throw new ApplicationException("Такой сотрудник не найден");
             arrayListFind.Add(arrayList[i]);
             dataGridView1.DataSource = arrayListFind;
+            arrayListFind.Clear();
         }
 
         private void бинарныйToolStripMenuItem_Click(object sender, EventArgs e)
@@ -168,6 +170,33 @@ namespace Lab7
                 throw new ApplicationException("Такой сотрудник не найден");
             arrayListFind.Add(arrayList[i]);
             dataGridView1.DataSource = arrayListFind;
+            arrayListFind.Clear();
+        }
+
+        private void задание2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int max = 0;
+            List<int> mas = new List<int>();
+            foreach(Payment payment in arrayList)
+            {
+                mas.Add(payment.GivenAmount);
+            }
+            int i = mas.Max();
+            mas.Clear();            
+            foreach (Payment payment in arrayList)
+            {
+                if(payment.GivenAmount != i)
+                    mas.Add(payment.GivenAmount);
+            }
+            int i2 = mas.Min();
+            mas.Clear();
+            List<Payment> arrayListFind = new List<Payment>();
+            foreach (Payment payment in arrayList)
+            {
+                if ((payment.GivenAmount == i) || (payment.GivenAmount == i2))
+                    arrayListFind.Add(payment);
+            }
+            dataGridView1.DataSource=arrayListFind;
         }
     }
 }
