@@ -26,6 +26,8 @@ namespace Lab7
 
         private Finder finder = new Finder();
 
+        private Bonus Bonus = new Bonus();
+
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -124,16 +126,19 @@ namespace Lab7
             else throw new ArgumentException("База данных пуста");
         }
 
-        private void ExOneToolStripMenuItem_Click(object sender, EventArgs e)
+        private void задание1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dbcheck();
             arrayList.Sort();
             array.Sort();
+            dataGridView1.Refresh();
         }
 
-        private void сортировакаToolStripMenuItem_Click(object sender, EventArgs e)
+        private void сортировкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dbcheck();
+            arrayList.Sort();
+            array.Sort();
             arrayList.Reverse();
             array.Reverse();
             dataGridView1.Refresh();
@@ -156,7 +161,7 @@ namespace Lab7
             if (i == -1)
                 throw new ApplicationException("Такой сотрудник не найден");
             arrayListFind.Add(arrayList[i]);
-            dataGridView1.DataSource = arrayListFind;
+            dataGridView1.DataSource = arrayListFind.GetRange(0, arrayListFind.Count);
             arrayListFind.Clear();
         }
 
@@ -169,7 +174,7 @@ namespace Lab7
             if (i < 0)
                 throw new ApplicationException("Такой сотрудник не найден");
             arrayListFind.Add(arrayList[i]);
-            dataGridView1.DataSource = arrayListFind;
+            dataGridView1.DataSource = arrayListFind.GetRange(0, arrayListFind.Count);
             arrayListFind.Clear();
         }
 
@@ -177,15 +182,15 @@ namespace Lab7
         {
             int max = 0;
             List<int> mas = new List<int>();
-            foreach(Payment payment in arrayList)
+            foreach (Payment payment in arrayList)
             {
                 mas.Add(payment.GivenAmount);
             }
             int i = mas.Max();
-            mas.Clear();            
+            mas.Clear();
             foreach (Payment payment in arrayList)
             {
-                if(payment.GivenAmount != i)
+                if (payment.GivenAmount != i)
                     mas.Add(payment.GivenAmount);
             }
             int i2 = mas.Min();
@@ -196,7 +201,30 @@ namespace Lab7
                 if ((payment.GivenAmount == i) || (payment.GivenAmount == i2))
                     arrayListFind.Add(payment);
             }
-            dataGridView1.DataSource=arrayListFind;
+            dataGridView1.DataSource = arrayListFind.GetRange(0, arrayListFind.Count);
+            arrayListFind.Clear();
+        }
+
+        private void задание3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dbcheck();
+            Bonus.ShowDialog();
+            List<Payment> arrayListFind = new List<Payment>();
+            foreach (Payment payment in arrayList)
+            {
+                double IntBonus = (payment.ProcentBonus / 100) * payment.Оклад;
+                if (IntBonus > DataBank.BonusSort)
+                    arrayListFind.Add(payment);
+            }
+            dataGridView1.DataSource = arrayListFind.GetRange(0, arrayListFind.Count);
+            arrayListFind.Clear();
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Версия программы: v1.0\n" +
+                "Создатель: Сиротин Игорь, попрошу: \n" +
+                "Владимирович\n");                
         }
     }
 }

@@ -31,10 +31,5 @@ namespace Lab7
                 this.Close();
             }
         }
-
-        private void FindFamily_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

@@ -133,7 +133,7 @@
             сортировакаToolStripMenuItem.Name = "сортировакаToolStripMenuItem";
             сортировакаToolStripMenuItem.Size = new Size(180, 22);
             сортировакаToolStripMenuItem.Text = "Сортировка";
-            сортировакаToolStripMenuItem.Click += сортировакаToolStripMenuItem_Click;
+            сортировакаToolStripMenuItem.Click += сортировкаToolStripMenuItem_Click;
             // 
             // поискToolStripMenuItem
             // 
@@ -145,14 +145,14 @@
             // линейныйToolStripMenuItem
             // 
             линейныйToolStripMenuItem.Name = "линейныйToolStripMenuItem";
-            линейныйToolStripMenuItem.Size = new Size(180, 22);
+            линейныйToolStripMenuItem.Size = new Size(132, 22);
             линейныйToolStripMenuItem.Text = "Линейный";
             линейныйToolStripMenuItem.Click += линейныйToolStripMenuItem_Click;
             // 
             // бинарныйToolStripMenuItem
             // 
             бинарныйToolStripMenuItem.Name = "бинарныйToolStripMenuItem";
-            бинарныйToolStripMenuItem.Size = new Size(180, 22);
+            бинарныйToolStripMenuItem.Size = new Size(132, 22);
             бинарныйToolStripMenuItem.Text = "Бинарный";
             бинарныйToolStripMenuItem.Click += бинарныйToolStripMenuItem_Click;
             // 
@@ -168,7 +168,7 @@
             ExOneToolStripMenuItem.Name = "ExOneToolStripMenuItem";
             ExOneToolStripMenuItem.Size = new Size(180, 22);
             ExOneToolStripMenuItem.Text = "Задание 1";
-            ExOneToolStripMenuItem.Click += ExOneToolStripMenuItem_Click;
+            ExOneToolStripMenuItem.Click += задание1ToolStripMenuItem_Click;
             // 
             // задание2ToolStripMenuItem
             // 
@@ -182,12 +182,14 @@
             задание3ToolStripMenuItem.Name = "задание3ToolStripMenuItem";
             задание3ToolStripMenuItem.Size = new Size(180, 22);
             задание3ToolStripMenuItem.Text = "Задание 3";
+            задание3ToolStripMenuItem.Click += задание3ToolStripMenuItem_Click;
             // 
             // оПрограммеToolStripMenuItem
             // 
             оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
             оПрограммеToolStripMenuItem.Size = new Size(94, 20);
             оПрограммеToolStripMenuItem.Text = "О программе";
+            оПрограммеToolStripMenuItem.Click += оПрограммеToolStripMenuItem_Click;
             // 
             // label1
             // 

@@ -71,7 +71,6 @@
             FindFamily.Name = "FindFamily";
             FindFamily.Size = new Size(200, 23);
             FindFamily.TabIndex = 3;
-            FindFamily.TextChanged += FindFamily_TextChanged;
             // 
             // Find
             // 

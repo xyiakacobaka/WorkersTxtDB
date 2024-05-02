@@ -9,5 +9,6 @@ namespace Lab7
     static class DataBank
     {
         public static string Family;
+        public static double BonusSort;
     }
 }

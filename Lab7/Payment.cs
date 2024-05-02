@@ -118,9 +118,9 @@ namespace Payments
         }
         public int CompareTo(Payment? obj)
         {
-            if (this.Year < obj.Year)
-                return 1;
             if (this.Year > obj.Year)
+                return 1;
+            if (this.Year < obj.Year)
                 return -1;
             else
                 return 0;
